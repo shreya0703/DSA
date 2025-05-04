@@ -1,31 +1,27 @@
 class Solution {
     public void sortColors(int[] nums) {
-        int cout0 = 0;
-        int cout1 =0;
-        int cout2 =0;
-        for(int i =0;i<nums.length;i++){
-            if(nums[i] == 0){
-                cout0++;
-            }else if(nums[i] ==1){
-                cout1++;
-            }else{
-                cout2++;
-            }
+        int n = nums.length;
+      int low = 0; int mid = 0; int high = n -1;
+     while(mid<=high){
+        if(nums[mid] ==0){
+            int temp  = nums[low];
+            nums[low] = nums[mid];
+            nums[mid] = temp;
+            mid++;
+            low++;
+
         }
-    
-        for(int i =0 ; i<nums.length; i++){
-            nums[i] = 0;
-          
+        else if(nums[mid]==1){
+            mid++;
+
+        }else{
+            int temp =nums[mid];
+          nums[mid] = nums[high];
+            nums[high] = temp;
+            high--;
+
         }
-        for(int i =cout0 ; i<nums.length; i++){
-            nums[i] = 1;
-          
-        }
-        for(int i = cout0 +cout1 ; i<nums.length; i++){
-            nums[i] = 2;
-           
-        }
-        
+     }
         
     }
 }
